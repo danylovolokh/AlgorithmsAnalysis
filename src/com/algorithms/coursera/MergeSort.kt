@@ -1,4 +1,4 @@
-package com.sort
+package com.algorithms.coursera
 
 import java.util.*
 

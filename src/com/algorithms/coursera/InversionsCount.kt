@@ -1,4 +1,4 @@
-package com.sort
+package com.algorithms.coursera
 
 import java.io.File
 import java.util.*
@@ -23,7 +23,7 @@ fun main(args: Array<String>){
 
 fun getArrayFromFile() : IntArray {
 
-    val scanner = Scanner(File("CourseraTask.txt"))
+    val scanner = Scanner(File("count_split_inversions_task.txt"))
     val numbers = IntArray(100000)
     var i = 0
     while (scanner.hasNextInt()) {
