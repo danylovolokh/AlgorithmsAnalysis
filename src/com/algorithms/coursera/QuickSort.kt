@@ -5,6 +5,31 @@ import java.util.*
 
 /**
  * This is a Quick Sort. It works with O(n log(n)) on average if pivots are chosen randomly.
+ *
+ * 1. We find the pivot element: in our example it's a first/last element.
+ * But it should be chosen randomly to get O(n log(n))
+ *
+ * 2. We need to partition the array. Partitioning means moving all the elements that are bigger/smaller
+ * than the pivot to the right/left part of the pivot in the array.
+ *
+ *
+ *   |
+ *   v
+ * [ 3, 2, 1, 6, 5, 8]
+ *
+ *
+ *  Array after first partitioning. All the elements that are less than the pivot are situated to the left of the pivot.
+ *         |
+ *         v
+ * [ 2, 1, 3, 6, 5, 8]
+ *
+ *
+ * Array after second partitioning.
+ *      |
+ *      v
+ * [ 1, 2, 3, 6, 5, 8]
+ *
+ *
  */
 
 fun main(args: Array<String>){
@@ -38,6 +63,9 @@ fun quickSort(intArray: IntArray, from: Int, to: Int) {
 
 }
 
+/**
+ * intArray = [3, 1, 2, 6, 7, 8]
+ */
 fun partitionAroundPivotFirstElement(intArray: IntArray, leftMostIndex: Int, rightMostIndex: Int): Int{
     var pivot = intArray[leftMostIndex]
 
@@ -45,7 +73,14 @@ fun partitionAroundPivotFirstElement(intArray: IntArray, leftMostIndex: Int, rig
      * "i" is a divider between items smaller than the pivot and bigger than the pivot.
      * Example: pivot == 3
      *
-     * partitioned array = ["pivot" = 3, 1, "i" = 2, 6, 7, 8]
+     * partitioned array = [
+     * "pivot" = 3,
+     *              1,
+     *                  "i" = 2,
+     *                      6,
+     *                          7,
+     *                              8
+     * ]
      *
      */
 
@@ -63,6 +98,8 @@ fun partitionAroundPivotFirstElement(intArray: IntArray, leftMostIndex: Int, rig
 
     // swap the pivot with the biggest element of the elements that are less than the pivot.
     swapArrayElements(leftMostIndex, intArray, i - 1)
+
+    // return the pivot
     return i - 1
 }
 
